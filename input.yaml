@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Input file for mylstm_sbl_3d
+#
+
+# Input flags
+itrain        : 0                 #itrain=1 training; itrain = 0 load from model
+idata_in      : 1                 # =0 then from .nc file; = 1 then from .mat file
+iric_plot     : 1                 # =1 then calculate, plot and save
+iric_lim      : 1                 # =0, ric_lim not used; =1, ric_lim used for n_modes 
+itrumodes_plot: 1                 # =1, tru modes are plotted
+irecon_nc     : 1                 # =1, write the reconstructed values to .nc file
+il2norm       : 1                 # =1, calculate and plot L2norm between True and ROM 
+ihurst        : 0                 # =1, calculate and plot hurst coefficients
+   
+# NC2MAT parameters
+inc2mat :  0                  #imat_out = 1, write a .mat file
+nc2mat_fname_nc : /mnt/scratch/data/bldg_pred/myflow_8ms_building_2.nc
+nc2mat_fname_mat: /mnt/scratch/data/bldg_pred/bldg_8ms_2.mat
+nc2mat_ntot     : 500
+nc2mat_start    : 120
+    
+#Data parameters
+data_fname : /mnt/scratch/data/bldg_pred/bldg_8ms_used.mat
+data_ntot  : 500
+
+#Runtime parameters
+n_offset : 0
+n_train  : 400
+n_pred   : 500
+n_modes  : 16                # over-ridden by iric_lim = 1
+ric_lim  : 80.0
+
+#Detrending 
+i_detrend    : 0
+nord_detrend : 2
+
+#Training parameters
+n_lookback : 20
+n_epochs   : 2000
+n_batchsize: 512
+n_neurons  : 64
+n_hidlayers: 2
+rec_dropout: 0.2
+dropout    : 0.2
+model_fname: LSTMmodel.h5
+
+#Misc paramters
+n_trumodes_plot   : 8
+ncol_trumodes_plot: 2
+nrow_trumodes_plot: 4
+
+
+n_perpage        : 8
+n_pages          : 3
+ncol_mlmodes_plot: 2
+nrow_mlmodes_plot: 4
+
+n_plot_start     : 400
+n_plot_step      : 2
+n_plot_num       : 51  
+
+t_start          : 121.1
+t_end            : 621.1
+
+#gif_parameters
+igif_tru  : 0
+nstart_gif_tru : 10
+nstep_gif_tru  : 10
+
+
+igif_mlorg : 0
+nstep_mlorg: 10
+
+#Backend for plotting
+imp_backend: 0
+mp_backend : 'Qt5Agg'
+cmap       : 'cmo.deep'           #cmo. are from cmocean colormaps
+
