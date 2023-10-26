@@ -24,13 +24,18 @@ Flags for convertion, runtime, plotting, gif generation, backend plotting are al
 
 
 ## Packages used
-* Plots
-* OffsetArrays
-* WriteVTK
-* NPZ
-* YAML
-* Printf
+* tensorflow
+* sklearn
+* h5py
+* tqdm
+* numpy
+* netcdf4
+* scipy
+* hurst
+* matplotlib
+* time
+* cmocean
 
 ## Tested with 
-* Julia version 1.6.7 
-* Julia version 1.9.2
+* Python version 3.6 
+* Python version 3.8
